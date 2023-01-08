@@ -10,7 +10,7 @@ RSpec.describe Auction do
     end
 
     it 'has attributes' do
-      expect(attendee.items).to eq([])
+      expect(auction.items).to eq([])
     end
   end
 end
