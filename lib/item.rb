@@ -1,7 +1,8 @@
 class Item
-  attr_reader
+  attr_reader :name, :bids
 
-  def intialize()
-    
+  def initialize(name)
+    @name = name
+    @bids = {}
   end
 end
