@@ -1,7 +1,9 @@
 class Attendee
-  attr_reader 
+  attr_reader :name, 
+              :budget
 
-  def initialize()
-    
+  def initialize(name:, budget:)
+    @name = name
+    @budget = budget.delete('$').to_i
   end
 end
