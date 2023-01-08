@@ -26,7 +26,8 @@ RSpec.describe Auction do
       expect(auction.items).to eq([item1, item2])
     end
 
-    xit 'can look at #item_names' do
+    it 'can look at #item_names' do
+    require 'pry'; binding.pry
       auction.add_item(item1)
       auction.add_item(item2)
 
