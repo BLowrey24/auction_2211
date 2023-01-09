@@ -60,20 +60,36 @@ RSpec.describe Auction do
   end
 
   describe '#potential_revenue' do
-  it 'returns the total potential sale price of all items' do
-    auction.add_item(item1)
-    auction.add_item(item2)
-    auction.add_item(item3)
-    auction.add_item(item4)
-    auction.add_item(item5)
+    it 'returns the total potential sale price of all items' do
+      auction.add_item(item1)
+      auction.add_item(item2)
+      auction.add_item(item3)
+      auction.add_item(item4)
+      auction.add_item(item5)
 
-    item1.add_bid(attendee2, 20)
-    item1.add_bid(attendee1, 22)
-    item4.add_bid(attendee3, 50)
-    item3.add_bid(attendee2, 15)
-    require 'pry'; binding.pry
+      item1.add_bid(attendee2, 20)
+      item1.add_bid(attendee1, 22)
+      item4.add_bid(attendee3, 50)
+      item3.add_bid(attendee2, 15)
 
-    expect(auction.potential_revenue).to eq(87)
+      expect(auction.potential_revenue).to eq(87)
+    end
   end
-end
+
+  describe '#bidders' do
+    it 'return an array of attendees who have placed a bid in the auction' do
+      auction.add_item(item1)
+      auction.add_item(item2)
+      auction.add_item(item3)
+      auction.add_item(item4)
+      auction.add_item(item5)
+
+      item1.add_bid(attendee2, 20)
+      item1.add_bid(attendee1, 22)
+      item4.add_bid(attendee3, 50)
+      item3.add_bid(attendee2, 15)
+
+      expect(auction.bidders).to eq(attendee2, attendee1, attendee3)
+    end
+  end
 end
