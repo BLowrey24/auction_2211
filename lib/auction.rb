@@ -16,4 +16,9 @@ class Auction
   def unpopular_items
     items.select {|item| item.bids.empty?}
   end
+
+  def potential_revenue
+    items.map(&:current_high_bid).compact.reduce(0, :+)
+  end
+  
 end
