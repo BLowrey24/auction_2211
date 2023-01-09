@@ -1,4 +1,5 @@
 require './lib/item'
+require './lib/attendee'
 
 RSpec.describe Item do
   let(:item1) { Item.new('Chalkware Piggy Bank')}
@@ -26,8 +27,9 @@ RSpec.describe Item do
     it 'can add bid to items' do
       item1.add_bid(attendee2, 20)
       item1.add_bid(attendee1, 22)
-
-      expect(item1.bids)to eq({attendee2 => 20, attendee1 => 22})
+      
+      expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
+      require 'pry'; binding.pry
     end
   end
 end
