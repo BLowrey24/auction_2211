@@ -29,7 +29,6 @@ RSpec.describe Item do
       item1.add_bid(attendee1, 22)
       
       expect(item1.bids).to eq({attendee2 => 20, attendee1 => 22})
-      require 'pry'; binding.pry
     end
   end
 
@@ -37,7 +36,7 @@ RSpec.describe Item do
     it '#current_high_bid' do
     item1.add_bid(attendee2, 20)
     item1.add_bid(attendee1, 22)
-    
+  
     expect(item1.current_high_bid).to eq(22)
     end
   end
