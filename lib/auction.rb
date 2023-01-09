@@ -20,5 +20,8 @@ class Auction
   def potential_revenue
     items.map(&:current_high_bid).compact.reduce(0, :+)
   end
-  
+
+  def bidders
+    items.map(&:bids).flatten(1).map(&:first).uniq.compact
+  end  
 end
