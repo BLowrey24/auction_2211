@@ -35,11 +35,21 @@ RSpec.describe Auction do
     end
 
     it 'can look at #item_names' do
-    require 'pry'; binding.pry
       auction.add_item(item1)
       auction.add_item(item2)
 
       expect(auction.item_names).to eq(['Chalkware Piggy Bank', 'Bamboo Picture Frame'])
+    end
+  end
+
+  descirbe 'check bids on items and look at what items are unpopular' do
+    it '#unpopular_items' do
+    item1.add_bid(attendee2, 20)
+    item1.add_bid(attendee1, 22)
+    item4.add_bid(attendee3, 50)
+    item3.add_bid(attendee2, 15)
+
+    expect(auction.unpopular_items).to eq[item2, item5]
     end
   end
 end
