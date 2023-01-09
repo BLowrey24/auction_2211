@@ -42,14 +42,20 @@ RSpec.describe Auction do
     end
   end
 
-  descirbe 'check bids on items and look at what items are unpopular' do
+  describe 'check bids on items and look at what items are unpopular' do
     it '#unpopular_items' do
+    auction.add_item(item1)
+    auction.add_item(item2)
+    auction.add_item(item3)
+    auction.add_item(item4)
+    auction.add_item(item5)
+
     item1.add_bid(attendee2, 20)
     item1.add_bid(attendee1, 22)
     item4.add_bid(attendee3, 50)
     item3.add_bid(attendee2, 15)
 
-    expect(auction.unpopular_items).to eq[item2, item5]
+    expect(auction.unpopular_items).to eq([item2, item5])
     end
   end
 end
